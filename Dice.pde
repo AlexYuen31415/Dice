@@ -16,6 +16,8 @@ class Si {
     float rollCooldown = 1000;
     
     boolean rolling = false;
+
+    boolean isMouseDown = false;
     
     PVector[] faceNormals = {
       new PVector(0, 0, 1),
@@ -32,7 +34,7 @@ class Si {
     }
     
     void update() {
-        if (mousePressed && millis() - lastRollTime >= rollCooldown) {
+        if (isMouseDown && millis() - lastRollTime >= rollCooldown) {
           vrx = random(-5, 5);
           vry = random(-5, 5);
           rolling = true;
@@ -146,7 +148,14 @@ class Si {
   
     return bestFace + 1;
   }
+}
 
+void mousePressed() {
+  isMouseDown = true;
+}
+
+void mouseReleased() {
+  isMouseDown = false;
 }
 
 Si obama1 = new Si(mouseX-100, 100);
