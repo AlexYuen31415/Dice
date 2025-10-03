@@ -114,7 +114,7 @@ class Si {
   }
     
   PVector rotatedNormal(float rx, float ry, PVector n) {
-    PVector r = n.copy();
+    PVector r = n.get();
     float cosX = cos(rx);
     float sinX = sin(rx);
     float y1 = r.y * cosX - r.z * sinX;
